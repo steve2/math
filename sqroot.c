@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 double sqroot (double);
-double func (double, double);
-double deriv (double, double);
+static double func (double, double);
+static double deriv (double, double);
 
-double absolute (double x) {
+static double absolute (double x) {
 	if (x < 0.0) {
 		return -x;
 	} else {
@@ -30,7 +30,7 @@ int main () {
  *				abides by the conditions listed below.
  *
  * @conditions 
- *	1. double 'n' must be positive, cannot find the square root of a negative
+ *	• 'double n' must be positive, cannot find the square root of a negative
  *		number without introducing the 'i' value for sqroot(-1).
  */
 double sqroot (double n) {
@@ -50,5 +50,5 @@ double sqroot (double n) {
  * f(x) = 2X. Together they are used to calculate a root of 'func' with 
  * Newton's method.
  */
-double func (double x, double n) { return x * x - n; }
-double deriv (double x, double n) { return 2 * x; }
+static double func (double x, double n) { return x * x - n; }
+static double deriv (double x, double n) { return 2 * x; }
